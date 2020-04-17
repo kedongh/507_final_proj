@@ -1,0 +1,22 @@
+import unittest
+import scrape
+
+'''
+Some test cases for scrape.py
+
+NOTE: Since photo and reviews vary along with time, the test case cannot be treated as correct answer forever.
+'''
+
+class Test_Part_1(unittest.TestCase):
+	def setUp(self):
+		self.url = 'https://www.yelp.com/biz/sam-wo-restaurant-san-francisco-3?adjust_creative=M0e5k4FmE4KKyc5kjSTUsw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=M0e5k4FmE4KKyc5kjSTUsw'
+
+	def test_1_contents(self):
+		pics, reviews = scrape.get_info_from_url(self.url)
+		self.assertEqual(pics, ['https://s3-media0.fl.yelpcdn.com/bphoto/DvRtrIbSljZLJ3ulyw9qIg/l.jpg', 'https://s3-media0.fl.yelpcdn.com/bphoto/4nl5ktu6HXDMfXZAm8O1hw/l.jpg', 'https://s3-media0.fl.yelpcdn.com/bphoto/JscOXFoclTvP4RCfeTNUJA/l.jpg'])
+		self.assertEqual(reviews, ['On a relatively empty day in Chinatown, I stumbled across this lovely hole in the wall. I had never known the history of this restaurant or even what their specialties were, but I knew I had to go and check it out. Though it might seem slightly unapproachable from the outside, walking in was a great idea. The inside is a classic San Francisco high-ceiling structure, paired with a variety of seating suitable for single eaters or full families looking to dine in. Staff is kind and eager to help assist with menu choices and accommodations. I had the Pork and Preserved Egg Jook/Rice Porridge for lunch! Rice porridge in every culture is underrated, but some tender part of my heart was yearning for hot, comforting soup with gelatinous bits. Yum. Upon serving it to me, I realized that I had totally forgotten to order "YouTiao" (long, fried Chinese savory crullers) to complete the meal. They served me a fresh batch, which almost never happens in Cantonese restaurants anymore. To my happy surprise, it was light, buttery, crispy, and HOT! With an added helping of Sambal, Soy sauce, and white pepper, my jook was complete!Not gonna lie, I had a real Ratatouille moment; the flashback of being young at home and eating my mother\'s fresh jok with similarly simple toppings warmed my heart. Creamy, silky, simple. The pork and chopped 1000 yr old egg provided lovely textures and produced a very happy tummy. Can\'t wait to go back.',
+									'Ate delicious noodles with spicy pork slices on top.and hubby had beef stew mixed with won ton and noodles. My mom and dad came to this restaurant 67 years ago. This is where my mom had her first meal in America after she immigrated first China. I remember her telling me about the experience. They have the original stools and the marble table tops and was happy the owners kept some of the original fixtures and furniture.As we were leaving, We \xa0met Julie who is related to the original owners. Her family felt it was important to keep some of the original history with the tables and stools. I am glad her family did. She shared with us the update and history of this restaurant. Thank you Julie. I am sad I I did not meet Edsel Wong (RIP) the meanest waiter in the United States.',
+									"This is one of my favorite spots in Chinatown. Not because you're going to get some fancy unique food, but because it's solid Chinese food, family owned, and a solid place in the community. This location is different than when they were famous for the rude server, but it gets the job done.There's really only a few things I get:Noodles - either with beef stew or with won ton...or both if I can't decide. Their beef stew is delicious and melts in your mouth - the extra sauce makes the noodle soup so much more delicious. The won tons are really springy and perfect. Noodles cooked perfectly all the time.BBQ pork roll - don't think of this as your shiny pork cheung fun. It's a thicker rice roll with chopped bbq pork and cilantro. It's delicious. Get this.Duck Fried rice - WITH A FRIED EGG. I swear if you don't get a fried egg on top of this, you're cheating yourself. Just Duck fat. Fried rice - perfectly done without clumps. And eggy goodness. So delicious.This is a great place for lunch, but even better in the middle of the night after a few drinks. Just don't be drunk and in there. No one has time for foolishness."])
+
+if __name__ == '__main__':
+	unittest.main()

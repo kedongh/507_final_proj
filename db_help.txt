@@ -1,0 +1,12 @@
+Parameters:
+
+- [NULL|category], default=NULL
+	- The first category within which to limit the results.
+- [NULL|location=<city>], default=NULL
+	- The city within which to limit the results.
+- [rating|review_count|price], default=rating
+	- Whether to sort/aggregate by rating, review_count, or price.
+- [top|bottom], default=top
+	- List results in descending (top) or ascending (bottom) order.
+- <integer>, default=10
+	- List <limit> matches.

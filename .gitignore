@@ -1,0 +1,5 @@
+__pycache__
+secrets.py
+.DS_Store
+yelp.sqlite
+search_cache.json
