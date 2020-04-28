@@ -3,6 +3,8 @@ import db
 
 '''
 Some test cases for db.py
+
+The test case answer may change due to more information stored in the database.
 '''
 
 class Test_Part_1(unittest.TestCase):

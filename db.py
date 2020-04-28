@@ -23,7 +23,7 @@ def process_command(command):
 
 def generate(command):
 	''' Generate query according to the given command.
-	
+
 	Args:
 		command (list): A list of command parameters.
 	Returns:
@@ -67,5 +67,5 @@ def load_help_text():
 
 
 if __name__ == '__main__':
-	command = ['Japanese', 'Seattle', 'rating', 'bottom', '5']
+	command = ['Chinese', 'San Francisco', 'rating', 'top', '10']
 	print(process_command(command))

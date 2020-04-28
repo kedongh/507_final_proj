@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Search Page</title>
+</head>
+<body>
+	<h1>
+    Here are {{count}} relevant restuarants info.
+  </h1>
+
+  <table>
+    <tr>
+      <th>Restaurant Name</th>
+      <th>phone number</th>
+      <th>price</th>
+      <th>rating</th>
+      <th>address</th>
+      <th>review</th>
+      <th>picture</th>
+    </tr>
+    {% for l in list %}
+    <tr>
+      <td>{{l[1]}}</td>
+      <td>{{l[3]}}</td>
+      <td>{{l[6]}}</td>
+      <td>{{l[5]}}</td>
+      <td>{{l[7]}}</td>
+      <td>{{l[10]}}</td>
+      <td><img src={{l[9]}}></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+	<p style="text-align:center">
+		<a href="/search">Back</a>
+	</p>
+</body>
+</html>

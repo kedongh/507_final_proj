@@ -24,16 +24,16 @@ def get_info_from_url(url):
 	all_pics_items = soup.find_all('div', class_='lemon--div__373c0__1mboc photo-header-media__373c0__1fmzx photo-header-media--4__373c0__1CGN1 display--inline-block__373c0__2de_K border-color--default__373c0__2oFDT')
 	all_revs_items = soup.find_all('p', class_='lemon--p__373c0__3Qnnj text__373c0__2pB8f comment__373c0__3EKjH text-color--normal__373c0__K_MKN text-align--left__373c0__2pnx_')
 
-	pics = []
-	reviews = []
+	pics = ''
+	reviews = ''
 
-	for i in range(min(3, len(all_pics_items))):
+	for i in range(min(1, len(all_pics_items))):
 		pic_item = all_pics_items[i].find('img', class_='lemon--img__373c0__3GQUb')
-		pics.append(pic_item['src'])
+		pics = pic_item['src']
 
-	for i in range(min(3, len(all_revs_items))):
+	for i in range(min(1, len(all_revs_items))):
 		rev_item = all_revs_items[i].find('span', class_='lemon--span__373c0__3997G')
-		reviews.append(rev_item.text.strip())
+		reviews = rev_item.text.strip()
 
 	return pics, reviews
 

@@ -3,6 +3,7 @@ import collections
 import secrets
 import json
 import sqlite3
+import scrape
 
 from bs4 import BeautifulSoup
 
@@ -68,13 +69,15 @@ class Business:
 			for i in range(min(3, len(business['categories']))):
 				self.category[i] = business['categories'][i]['title']
 
+		self.pic, self.review = scrape.get_info_from_url(self.url)
+
 	def get_business_info(self):
 		return [self.yelp_id, self.business_name, self.city, self.phone_number,
 				self.review_count, self.rating, self.price, self.address, self.url]
 
 	def get_category_info(self):
 		return [self.yelp_id] + self.category
-		
+
 
 def open_cache():
     ''' Opens the cache file if it exists and loads the JSON into
@@ -202,7 +205,7 @@ def write_to_business_single(info):
 
 def write_to_category_single(info):
 	''' Write a row into category_info table.
-	
+
 	Args:
 		info (list): A list of category info of one business.
 
@@ -236,7 +239,7 @@ def write_to_category(list):
 
 	Args:
 		list (list): A list of business objects.
-	
+
 	Returns:
 		None
 	'''
@@ -320,17 +323,3 @@ if __name__ == '__main__':
 			busi_list = get_business_list(term=term, location=city, count=50)
 			write_to_business(busi_list)
 			write_to_category(busi_list)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
